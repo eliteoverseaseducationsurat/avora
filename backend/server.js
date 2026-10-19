@@ -17,13 +17,14 @@ app.use(express.json());
 // API Routes
 app.use('/api/contact', contactRoutes);
 
-// Serve React Frontend
+// Serve Static Frontend Files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('*', (req, res) => {
+// Catch-all route for Single Page Application (SPA) - Express 5 compatible
+app.get('(.*)', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
