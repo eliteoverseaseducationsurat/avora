@@ -175,7 +175,7 @@ export default function App() {
                 THE AVORA
               </span>
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] font-medium block mt-1">
-                ONLINE
+                INDIA
               </span>
             </div>
           </div>
@@ -389,7 +389,7 @@ export default function App() {
               Mastery in Every Detail
             </h2>
             <p className="text-sm text-[#FDFBF7]/70 font-light leading-relaxed">
-              At The Avora Online, luxury is a quiet promise. Every formula is aged to perfection, every hide selected for flawless grain, and every cosmetic crafted with botanical purity.
+              At The Avora India, luxury is a quiet promise. Every formula is aged to perfection, every hide selected for flawless grain, and every cosmetic crafted with botanical purity.
             </p>
           </div>
 
@@ -481,10 +481,10 @@ export default function App() {
                 <span>parthvyas_15@yahoo.com</span>
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
+              {/*<div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
                 <MapPin className="w-5 h-5 text-[#D4AF37]" />
                 <span>• Surat</span>
-              </div>
+              </div>*/}
 
             </div>
           </div>
@@ -595,12 +595,12 @@ export default function App() {
               A
             </div>
             <span className="font-serif text-lg tracking-widest text-[#FDFBF7] uppercase">
-              THE AVORA ONLINE
+              THE AVORA INDIA
             </span>
           </div>
 
           <p className="text-[11px] tracking-wider text-center">
-            © {new Date().getFullYear()} The Avora Online. All Rights Reserved. Luxury Reimagined.
+            © {new Date().getFullYear()} The Avora India. All Rights Reserved. Luxury Reimagined.
           </p>
 
           <div className="flex items-center gap-6 text-[11px] uppercase tracking-wider">
