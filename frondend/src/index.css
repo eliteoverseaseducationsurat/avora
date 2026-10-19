@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #FDFBF7;
+    color: #111111;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  h1, h2, h3, .serif-heading {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
