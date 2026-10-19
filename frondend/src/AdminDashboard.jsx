@@ -21,7 +21,7 @@ export default function AdminDashboard({ onBackToStore }) {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get('http://localhost:5000/api/contact');
+      const res = await axios.get('/api/contact');
       if (res.data.success) {
         setInquiries(res.data.data);
       }
@@ -39,7 +39,7 @@ export default function AdminDashboard({ onBackToStore }) {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this inquiry?')) return;
     try {
-      const res = await axios.delete(`http://localhost:5000/api/contact/${id}`);
+      const res = await axios.delete(`/api/contact/${id}`);
       if (res.data.success) {
         setInquiries(inquiries.filter((item) => item._id !== id));
       }
