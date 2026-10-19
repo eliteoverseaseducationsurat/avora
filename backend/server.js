@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
+const path =  require('path');
 
 dotenv.config();
 connectDB();
@@ -13,8 +14,16 @@ app.use(express.json());
 
 app.use('/api/contact', require('./routes/contactRoutes'));
 
-app.get('/', (req, res) => {
-  res.send('The Avora Online API is running...');
+
+
+
+
+//Serve React frontend
+const _dirname = path.resolve();
+app.use(express.static(path.join(_dirname, '../frondend/dist')));
+
+app.get('*',(req, res)=>{
+  res.sendFile(path.join(-dirname, '../frondend/dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
