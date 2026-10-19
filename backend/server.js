@@ -23,8 +23,8 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Catch-all route for Single Page Application (SPA) - Express 5 compatible
-app.get('(.*)', (req, res) => {
+// SPA Catch-all middleware (No route path string = zero parsing errors)
+app.use((req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
