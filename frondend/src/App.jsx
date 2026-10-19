@@ -478,7 +478,7 @@ export default function App() {
 
               <div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
                 <Mail className="w-5 h-5 text-[#D4AF37]" />
-                <span>parthvyas_15@yahoo.com</span>
+                <span>info@avoraonline.in</span>
               </div>
 
               {/*<div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
