@@ -23,7 +23,7 @@ const _dirname = path.resolve();
 app.use(express.static(path.join(_dirname, '../frondend/dist')));
 
 app.get('*',(req, res)=>{
-  res.sendFile(path.join(-dirname, '../frondend/dist', 'index.html'));
+  res.sendFile(path.join(_dirname, '../frondend/dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
