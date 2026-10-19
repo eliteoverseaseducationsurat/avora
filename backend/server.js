@@ -15,15 +15,12 @@ app.use(express.json());
 app.use('/api/contact', require('./routes/contactRoutes'));
 
 
-
-
-
 //Serve React frontend
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../frondend/dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*',(req, res)=>{
-  res.sendFile(path.join(__dirname, '../frondend/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
