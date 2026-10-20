@@ -285,9 +285,15 @@ export default function App() {
   }
 
   // Filter products based on Category and Price
+ // Filter products based on Category and Price
   const filteredProducts = PRODUCTS.filter((item) => {
     const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-    const matchesPrice = item.price <= maxPrice;
+    
+    // Check if any variant price fits within maxPrice (or fallback to item.price if variants aren't used)
+    const matchesPrice = item.variants 
+      ? item.variants.some(v => v.price <= maxPrice)
+      : (item.price || 0) <= maxPrice;
+
     return matchesCategory && matchesPrice;
   });
 
