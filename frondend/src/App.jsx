@@ -91,9 +91,8 @@ const PRODUCTS = [
     id: 1,
     name: 'VELVET',
     category: 'fragrance',
-    /*
-    price: 9200,
-    priceLabel: '₹9,200', */
+    price: 0,
+    priceLabel: '',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/VELVET.jpeg?q=80&w=800&auto=format&fit=crop',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
@@ -103,8 +102,8 @@ const PRODUCTS = [
     id: 2,
     name: 'BLOOM',
     category: 'fragrance',
-    /*price: 9200,
-    priceLabel: '₹9,200',*/
+    price: 0,
+    priceLabel: '',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLOOM.jpeg?q=80&w=800&auto=format&fit=crop',
     notes: 'Orchid · Rose · Lily of the Valley · Violet',
@@ -114,8 +113,8 @@ const PRODUCTS = [
     id: 3,
     name: 'BLISS',
     category: 'fragrance',
-    /*price: 9200,
-    priceLabel: '₹9,200',*/
+    price: 0,
+    priceLabel: '₹9,200',
     tag: 'Holistic Beauty',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLISS.jpeg?q=80&w=800&auto=format&fit=crop',
     notes: 'Red Berries · Peony · Jasmine · Orchid',
@@ -125,8 +124,8 @@ const PRODUCTS = [
     id: 4,
     name: 'BRAVEN',
     category: 'fragrance',
-    /*price: 9200,
-    priceLabel: '₹9,200',*/
+    price: 'Coming Soon',
+    priceLabel: '',
     tag: 'Holistic Beauty',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BRAVEN.jpeg?q=80&w=800&auto=format&fit=crop',
     notes: 'Cardamom · Toffee · Amberwood',
@@ -134,10 +133,10 @@ const PRODUCTS = [
   },
   {
     id: 5,
-    name: 'Lumière Gold Serum',
+    name: 'SOLVER',
     category: 'fragrance',
-    /*price: 9200,
-    priceLabel: '₹9,200',*/
+    price: 'Coming Soon',
+    priceLabel: '',
     tag: 'Holistic Beauty',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg?q=80&w=800&auto=format&fit=crop',
     notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
