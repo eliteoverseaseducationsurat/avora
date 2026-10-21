@@ -347,9 +347,11 @@ export default function App() {
           
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 rounded-full border border-[#D4AF37] flex items-center justify-center bg-[#1A1A1A] text-[#E5C1CD] font-serif font-bold text-xl shadow-sm">
-              A
-            </div>
+            <img 
+              src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
+              alt="The Avora Logo" 
+              className="h-10 w-auto object-contain" 
+            />
             <div>
               <span className="font-serif text-2xl font-semibold tracking-widest text-[#1A1A1A] uppercase block leading-none">
                 THE AVORA
