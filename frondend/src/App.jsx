@@ -98,12 +98,9 @@ const PRODUCTS = [
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
     variants: [
-      {/*{ size: '20 ml', price: 0 },
+      { size: '20 ml', price: 0 },
       { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }*/},
-       { size: '20 ml'  },
-      { size: '50 ml'  },
-      { size: '100 ml'  }
+      { size: '100 ml', price: 0 }
     ]
   },
   {
@@ -313,7 +310,7 @@ export default function App() {
       if (res.data.success) {
         setStatus({
           loading: false,
-          success: 'Thank you for contacting The Avora Online. Our private concierge will reach out to you shortly.',
+          success: 'Thank you for contacting The Avora India. Our private concierge will reach out to you shortly.',
           error: ''
         });
         setFormData({ fullName: '', email: '', phone: '', interest: 'Perfumes', message: '' });
