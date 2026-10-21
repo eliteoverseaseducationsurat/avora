@@ -388,14 +388,14 @@ export default function App() {
           {/* 👉 Hero Logo Image */}
           <img 
             src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
-            alt="The Avora Emblem" 
-            className="w-16 h-16 object-contain mb-2 drop-shadow-sm" 
+            alt="The Avora India" 
+            className="w-48 h-48 object-contain mb-3 drop-shadow-sm" 
           />
 
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#FDFBF7]/80 backdrop-blur-sm text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
+         {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#FDFBF7]/80 backdrop-blur-sm text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Haute Fragrance & Leathercraft</span>
-          </div>
+          </div>*/}
 
           <h1 className="font-serif text-5xl md:text-7xl font-normal text-[#1A1A1A] leading-tight tracking-tight">
             Sensory Luxury, <br />
