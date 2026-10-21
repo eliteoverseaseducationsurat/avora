@@ -383,7 +383,15 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E5C1CD]/20 via-[#FDFBF7] to-[#FDFBF7] overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6 flex flex-col items-center">
+          
+          {/* 👉 Hero Logo Image */}
+          <img 
+            src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
+            alt="The Avora Emblem" 
+            className="w-16 h-16 object-contain mb-2 drop-shadow-sm" 
+          />
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#FDFBF7]/80 backdrop-blur-sm text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Haute Fragrance & Leathercraft</span>
@@ -826,11 +834,16 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-[#1A1A1A] text-[#FDFBF7]/60 py-12 border-t border-[#D4AF37]/20 text-xs">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-[#D4AF37] flex items-center justify-center text-[#E5C1CD] font-serif font-bold text-sm">
-              A
-            </div>
-            <span className="font-serif text-lg tracking-widest text-[#FDFBF7] uppercase">
+          <div 
+            className="flex items-center gap-3 cursor-pointer group" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <img 
+              src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
+              alt="The Avora Logo" 
+              className="h-8 w-auto object-contain group-hover:opacity-80 transition-opacity" 
+            />
+            <span className="font-serif text-lg tracking-widest text-[#FDFBF7] uppercase group-hover:text-[#D4AF37] transition-colors">
               THE AVORA INDIA
             </span>
           </div>
