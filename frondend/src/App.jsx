@@ -381,44 +381,61 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E5C1CD]/20 via-[#FDFBF7] to-[#FDFBF7] overflow-hidden">
+{/* Hero Section with Background Video */}
+      <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+        
+        {/* Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/avora_bottle_motion_20s_no_text.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/50 z-[1]"></div>
+
+        {/* Content Container */}
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6 flex flex-col items-center">
           
-          {/* 👉 Hero Logo Image */}
+          {/* Hero Logo Image (Cutout) */}
           <img 
             src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
             alt="The Avora India" 
-            className="w-48 h-48 object-contain mb-3 drop-shadow-sm" 
+            className="w-64 h-64 object-contain mb-4 drop-shadow-2xl" 
           />
 
-         {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#FDFBF7]/80 backdrop-blur-sm text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
+          {/*<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/60 bg-black/40 backdrop-blur-md text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Haute Fragrance & Leathercraft</span>
           </div>*/}
 
-          <h1 className="font-serif text-5xl md:text-7xl font-normal text-[#1A1A1A] leading-tight tracking-tight">
+          <h1 className="font-serif text-5xl md:text-7xl font-normal text-white leading-tight tracking-tight drop-shadow-md">
             Sensory Luxury, <br />
             <span className="italic font-light text-[#D4AF37]">Crafted for Distinction</span>
           </h1>
 
-          <p className="text-base md:text-lg text-[#1A1A1A]/70 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-base md:text-lg text-[#FDFBF7]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
             Discover bespoke fine fragrances, handcrafted Italian leather bags, and indulgent botanical cosmetics created for connoisseurs of understated elegance.
           </p>
 
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
               href="#collections"
-              className="w-full sm:w-auto px-8 py-4 bg-[#1A1A1A] text-[#FDFBF7] text-xs uppercase tracking-widest font-medium rounded-full hover:bg-[#D4AF37] hover:text-[#1A1A1A] transition-all duration-300 shadow-md text-center"
+              className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] text-[#1A1A1A] text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-md text-center"
             >
               Explore Collections
             </a>
             
             <button 
               onClick={() => openWhatsApp()}
-              className="w-full sm:w-auto px-8 py-4 border border-[#25D366] text-[#1A1A1A] text-xs uppercase tracking-widest font-medium rounded-full hover:bg-[#25D366] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 border border-[#25D366] bg-[#25D366]/20 backdrop-blur-sm text-white text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-[#25D366] transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-white" />
+              <MessageCircle className="w-4 h-4 text-white" />
               <span>Connect +91 9081600655</span>
             </button>
           </div>
