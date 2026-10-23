@@ -87,20 +87,18 @@ const PRODUCTS = [
     notes: '24K Gold Flakes, Saffron Oil, Botanical Peptides',
     description: 'A transformative facial elixir designed to restore youthful radiant luminosity naturally.'
   },*/
-  {
+    {
     id: 1,
     name: 'VELVET',
     category: 'fragrance',
-   
-
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/VELVET.jpeg',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
     variants: [
-      { size: '20 ml', price: 0 },
-      { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }
+      { size: '20 ml', mrp: 499, price: 299 },
+      { size: '50 ml', mrp: 1099, price: 799 },
+      { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   },
   {
@@ -113,9 +111,9 @@ const PRODUCTS = [
     notes: 'Orchid · Rose · Lily of the Valley · Violet',
     description: 'A graceful floral composition that blends the timeless romance of rose with the delicate freshness of lily of the valley. Orchid and violet add a soft, powdery elegance for a beautifully feminine finish.',
     variants: [
-      { size: '20 ml', price: 0 },
-      { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }
+      { size: '20 ml', mrp: 499, price: 299 },
+      { size: '50 ml', mrp: 1099, price: 799 },
+      { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   },
   {
@@ -128,9 +126,9 @@ const PRODUCTS = [
     notes: 'Red Berries · Peony · Jasmine · Orchid',
     description: 'Juicy passionfruit and vibrant red berries bring a playful burst of fruit, while delicate peony and jasmine add a graceful floral heart. Vanilla orchid rounds out the fragrance with a soft, creamy finish.',
     variants: [
-      { size: '20 ml', price: 0 },
-      { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }
+      { size: '20 ml', mrp: 499, price: 299 },
+      { size: '50 ml', mrp: 1099, price: 799 },
+      { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   },
   {
@@ -143,9 +141,9 @@ const PRODUCTS = [
     notes: 'Cardamom · Toffee · Amberwood',
     description: 'A rich, captivating fragrance where aromatic cardamom meets the indulgent sweetness of toffee, settling into the warm depth of amberwood.',
     variants: [
-      { size: '20 ml', price: 0 },
-      { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }
+      { size: '20 ml', mrp: 499, price: 299 },
+      { size: '50 ml', mrp: 1099, price: 799 },
+      { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   },
   {
@@ -158,9 +156,9 @@ const PRODUCTS = [
     notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
     description: 'Bright bergamot opens with a crisp citrus freshness, followed by the delicate elegance of orange blossom. Patchouli and a modern amber-woody base bring depth to this clean, sophisticated scent.',
     variants: [
-      { size: '20 ml', price: 0 },
-      { size: '50 ml', price: 0 },
-      { size: '100 ml', price: 0 }
+      { size: '20 ml', mrp: 499, price: 299 },
+      { size: '50 ml', mrp: 1099, price: 799 },
+      { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   }
 ];
@@ -194,7 +192,7 @@ function ProductCard({ product, onWhatsApp, onQuickView }) {
             <Eye className="w-4 h-4" />
           </button>
           <button
-            onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (₹${selectedVariant?.price || ''})`)}
+            onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`)}
             className="bg-[#25D366] text-white p-3 rounded-full hover:bg-[#20ba5a] transition-colors shadow-md"
             title="Inquire on WhatsApp"
           >
@@ -241,13 +239,20 @@ function ProductCard({ product, onWhatsApp, onQuickView }) {
           </div>
         )}
 
-        {/* Dynamic Price & Order */}
+        {/* Dynamic MRP & Offer Price Display */}
         <div className="pt-3 border-t border-[#E5C1CD]/20 flex items-center justify-between">
-          <span className="font-serif text-lg font-semibold text-[#1A1A1A]">
-            ₹{selectedVariant ? selectedVariant.price.toLocaleString('en-IN') : ''}
-          </span>
+          <div className="flex items-center gap-2.5">
+            {selectedVariant?.mrp && (
+              <span className="text-xs text-gray-400 line-through font-light">
+                ₹{selectedVariant.mrp.toLocaleString('en-IN')}
+              </span>
+            )}
+            <span className="font-serif text-lg font-semibold text-[#1A1A1A]">
+              ₹{selectedVariant ? selectedVariant.price.toLocaleString('en-IN') : ''}
+            </span>
+          </div>
           <button
-            onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (₹${selectedVariant?.price || ''})`)}
+            onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`)}
             className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] hover:text-[#25D366] transition-colors"
           >
             <span>Inquire</span>
@@ -848,9 +853,18 @@ export default function App() {
                   <h3 className="font-serif text-2xl font-medium text-[#1A1A1A]">
                     {selectedProduct.name}
                   </h3>
-                  <p className="font-serif text-xl font-bold text-[#1A1A1A]">
-                    ₹{modalVariant ? modalVariant.price.toLocaleString('en-IN') : ''}
-                  </p>
+                  
+                  {/* Dynamic MRP & Offer Price */}
+                  <div className="flex items-center gap-3">
+                    {modalVariant?.mrp && (
+                      <span className="text-sm text-gray-400 line-through font-light">
+                        ₹{modalVariant.mrp.toLocaleString('en-IN')}
+                      </span>
+                    )}
+                    <span className="font-serif text-2xl font-bold text-[#1A1A1A]">
+                      ₹{modalVariant ? modalVariant.price.toLocaleString('en-IN') : ''}
+                    </span>
+                  </div>
 
                   {/* Modal Size Selector */}
                   {selectedProduct.variants && (
@@ -886,7 +900,7 @@ export default function App() {
 
                 <button
                   onClick={() => {
-                    openWhatsApp(`${selectedProduct.name} - ${modalVariant?.size || ''} (₹${modalVariant?.price || ''})`);
+                    openWhatsApp(`${selectedProduct.name} - ${modalVariant?.size || ''} (Offer Price: ₹${modalVariant?.price || ''})`);
                     setSelectedProduct(null);
                   }}
                   className="w-full py-3.5 bg-[#25D366] text-white rounded-full text-xs uppercase tracking-widest font-semibold hover:bg-[#20ba5a] transition-colors flex items-center justify-center gap-2 shadow-md"
