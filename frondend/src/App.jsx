@@ -416,7 +416,7 @@ export default function App() {
 
           <h1 className="font-serif text-5xl md:text-7xl font-normal text-white leading-tight tracking-tight drop-shadow-md">
             Sensory Luxury, <br />
-            <span className="italic font-light text-[#D4AF37]">Crafted for Distinction</span>
+            <span className="italic font-light text-[#C59B67]">Crafted for Distinction</span>
           </h1>
 
           <p className="text-base md:text-lg text-[#FDFBF7]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
