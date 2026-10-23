@@ -416,7 +416,16 @@ export default function App() {
 
           <h1 className="font-serif text-5xl md:text-7xl font-normal text-white leading-tight tracking-tight drop-shadow-md">
             Sensory Luxury, <br />
-            <span className="italic font-light text-[#B8860B]">Crafted for Distinction</span>
+            <span 
+  className="italic font-light"
+  style={{
+    background: 'linear-gradient(135deg, #845A33 0%, #C29864 35%, #E6C25B 65%, #C29864 85%, #845A33 100%)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+  }}
+>
+  Crafted for Distinction
+</span>
           </h1>
 
           <p className="text-base md:text-lg text-[#FDFBF7]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
@@ -426,7 +435,10 @@ export default function App() {
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
               href="#collections"
-              className="w-full sm:w-auto px-8 py-4 bg-[#B8860B] text-[#1A1A1A] text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-md text-center"
+              className="w-full sm:w-auto px-8 py-4 text-[#1A1A1A] text-xs uppercase tracking-widest font-semibold rounded-full hover:opacity-90 transition-all duration-300 shadow-md text-center"
+              style={{
+                background: 'linear-gradient(135deg, #845A33 0%, #C29864 35%, #E6C25B 65%, #C29864 85%, #845A33 100%)'
+              }}
             >
               Explore Collections
             </a>
