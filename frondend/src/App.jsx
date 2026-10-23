@@ -240,15 +240,15 @@ function ProductCard({ product, onWhatsApp, onQuickView }) {
         )}
 
         {/* Dynamic MRP & Offer Price Display */}
-        <div className="pt-3 border-t border-[#E5C1CD]/20 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+        <div className="pt-3 border-t border-[#E5C1CD]/20 flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {selectedVariant?.mrp && (
               <span className="text-xs text-gray-400 line-through font-light">
-                ₹{selectedVariant.mrp.toLocaleString('en-IN')}
+                MRP ₹{selectedVariant.mrp.toLocaleString('en-IN')}
               </span>
             )}
-            <span className="font-serif text-lg font-semibold text-[#1A1A1A]">
-              ₹{selectedVariant ? selectedVariant.price.toLocaleString('en-IN') : ''}
+            <span className="text-xs text-gray-400 font-light flex items-center gap-1">
+              Offer Price <span className="font-serif text-lg font-semibold text-[#1A1A1A]">₹{selectedVariant ? selectedVariant.price.toLocaleString('en-IN') : ''}</span>
             </span>
           </div>
           <button
@@ -855,14 +855,14 @@ export default function App() {
                   </h3>
                   
                   {/* Dynamic MRP & Offer Price */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     {modalVariant?.mrp && (
-                      <span className="text-sm text-gray-400 line-through font-light">
-                        ₹{modalVariant.mrp.toLocaleString('en-IN')}
+                      <span className="text-xs text-gray-400 line-through font-light">
+                        MRP ₹{modalVariant.mrp.toLocaleString('en-IN')}
                       </span>
                     )}
-                    <span className="font-serif text-2xl font-bold text-[#1A1A1A]">
-                      ₹{modalVariant ? modalVariant.price.toLocaleString('en-IN') : ''}
+                    <span className="text-xs text-gray-400 font-light flex items-center gap-1">
+                      Offer Price <span className="font-serif text-2xl font-bold text-[#1A1A1A]">₹{modalVariant ? modalVariant.price.toLocaleString('en-IN') : ''}</span>
                     </span>
                   </div>
 
