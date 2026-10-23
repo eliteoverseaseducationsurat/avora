@@ -138,7 +138,7 @@ const PRODUCTS = [
     name: 'BRAVEN',
     category: 'fragrance',
     
-    tag: 'For His',
+    tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BRAVEN.jpeg',
     notes: 'Cardamom · Toffee · Amberwood',
     description: 'A rich, captivating fragrance where aromatic cardamom meets the indulgent sweetness of toffee, settling into the warm depth of amberwood.',
@@ -153,7 +153,7 @@ const PRODUCTS = [
     name: 'SOLVER',
     category: 'fragrance',
     
-    tag: 'For His',
+    tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
     description: 'Bright bergamot opens with a crisp citrus freshness, followed by the delicate elegance of orange blossom. Patchouli and a modern amber-woody base bring depth to this clean, sophisticated scent.',
@@ -515,88 +515,6 @@ export default function App() {
 
         </div>
 
-        {/* Product Grid 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <div 
-                key={product.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-[#E5C1CD]/30 hover:shadow-xl hover:border-[#D4AF37]/50 transition-all duration-500 flex flex-col"
-              >
-                
-                <div className="relative aspect-[4/5] bg-[#FDFBF7] overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute top-4 left-4 bg-[#1A1A1A]/80 backdrop-blur-md text-[#E5C1CD] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-medium">
-                    {product.tag}
-                  </div>
-
-                  
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="bg-white text-[#1A1A1A] p-3 rounded-full hover:bg-[#D4AF37] hover:text-white transition-colors shadow-md"
-                      title="Quick View"
-                    >
-                      <Eye className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => openWhatsApp(product.name)}
-                      className="bg-[#25D366] text-white p-3 rounded-full hover:bg-[#20ba5a] transition-colors shadow-md"
-                      title="Inquire on WhatsApp"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold block mb-1">
-                      {product.category}
-                    </span>
-                    <h3 className="font-serif text-xl font-medium text-[#1A1A1A] group-hover:text-[#D4AF37] transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-xs text-[#1A1A1A]/60 mt-1 line-clamp-1 italic">
-                      {product.notes}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#E5C1CD]/20 flex items-center justify-between">
-                    <span className="font-serif text-lg font-semibold text-[#1A1A1A]">
-                      {product.priceLabel}
-                    </span>
-                    <button
-                      onClick={() => openWhatsApp(product.name)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] hover:text-[#25D366] transition-colors"
-                    >
-                      <span>Inquire</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-span-full py-16 text-center space-y-3">
-              <p className="text-lg font-serif text-[#1A1A1A]/60">No luxury items match your chosen filter.</p>
-              <button 
-                onClick={() => { setActiveCategory('all'); setMaxPrice(30000); }}
-                className="text-xs uppercase tracking-widest text-[#D4AF37] underline font-medium hover:text-[#1A1A1A]"
-              >
-                Reset All Filters
-              </button>
-            </div>
-          )}
-        </div> */}
-
-
-
 
 
 
@@ -729,10 +647,13 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
-                <Mail className="w-5 h-5 text-[#D4AF37]" />
-                <span>info@avoraonline.in</span>
-              </div>
+<a 
+  href="mailto:info@avoraonline.in"
+  className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light hover:text-[#D4AF37] transition-colors"
+>
+  <Mail className="w-5 h-5 text-[#D4AF37]" />
+  <span>info@avoraonline.in</span>
+</a>
 
              {/* Instagram Row (Clickable) */}
 <a 
@@ -901,55 +822,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Quick View Modal 
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#FDFBF7] max-w-2xl w-full rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl relative animate-in fade-in zoom-in duration-200">
-            <button
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-10 bg-[#1A1A1A]/80 text-[#FDFBF7] p-2 rounded-full hover:bg-[#1A1A1A] transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="aspect-square bg-stone-100">
-                <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-8 flex flex-col justify-between space-y-6">
-                <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold">
-                    {selectedProduct.category}
-                  </span>
-                  <h3 className="font-serif text-2xl font-medium text-[#1A1A1A]">
-                    {selectedProduct.name}
-                  </h3>
-                  <p className="font-serif text-xl font-bold text-[#1A1A1A]">
-                    {selectedProduct.priceLabel}
-                  </p>
-                  <p className="text-xs text-[#1A1A1A]/70 leading-relaxed font-light pt-2">
-                    {selectedProduct.description}
-                  </p>
-                  <div className="pt-2 text-[11px] text-[#D4AF37] font-medium">
-                    Notes: {selectedProduct.notes}
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => {
-                    openWhatsApp(selectedProduct.name);
-                    setSelectedProduct(null);
-                  }}
-                  className="w-full py-3.5 bg-[#25D366] text-white rounded-full text-xs uppercase tracking-widest font-semibold hover:bg-[#20ba5a] transition-colors flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="w-4 h-4 fill-current" />
-                  <span>Order via WhatsApp</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}*/}
 
 
 
