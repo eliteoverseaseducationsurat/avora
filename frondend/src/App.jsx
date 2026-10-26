@@ -93,6 +93,7 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/VELVET.jpeg',
+    inspiredBy: 'GOOD GIRL', // 👉 Add this here
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
     variants: [
@@ -207,9 +208,19 @@ function ProductCard({ product, onWhatsApp, onQuickView }) {
           <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold block mb-1">
             {product.category}
           </span>
-          <h3 className="font-serif text-xl font-medium text-[#1A1A1A] group-hover:text-[#D4AF37] transition-colors">
-            {product.name}
-          </h3>
+          
+          {/* Name and Inspired-By on the same line */}
+          <div className="flex items-baseline justify-between gap-2">
+            <h3 className="font-serif text-xl font-medium text-[#1A1A1A] group-hover:text-[#D4AF37] transition-colors">
+              {product.name}
+            </h3>
+            {product.inspiredBy && (
+              <span className="text-[11px] text-[#1A1A1A]/60 font-light">
+                <span className="italic">Inspired By</span> {product.inspiredBy}
+              </span>
+            )}
+          </div>
+
           <p className="text-xs text-[#1A1A1A]/60 mt-1 line-clamp-1 italic">
             {product.notes}
           </p>
@@ -830,7 +841,7 @@ export default function App() {
 
 
 
-    {/* Quick View Modal */}
+{/* Quick View Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-[#FDFBF7] max-w-2xl w-full rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl relative animate-in fade-in zoom-in duration-200">
@@ -850,9 +861,17 @@ export default function App() {
                   <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold">
                     {selectedProduct.category}
                   </span>
-                  <h3 className="font-serif text-2xl font-medium text-[#1A1A1A]">
-                    {selectedProduct.name}
-                  </h3>
+                  
+                  <div className="flex items-baseline justify-between gap-2">
+                    <h3 className="font-serif text-2xl font-medium text-[#1A1A1A]">
+                      {selectedProduct.name}
+                    </h3>
+                    {selectedProduct.inspiredBy && (
+                      <span className="text-xs text-[#1A1A1A]/60 font-light">
+                        <span className="italic">Inspired By</span> {selectedProduct.inspiredBy}
+                      </span>
+                    )}
+                  </div>
                   
                   {/* Dynamic MRP & Offer Price */}
                   <div className="flex items-center gap-3 flex-wrap">
