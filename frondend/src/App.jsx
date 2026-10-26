@@ -767,10 +767,15 @@ export default function App() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-xl border border-[#E5C1CD]/50 bg-[#FDFBF7] text-xs focus:outline-none focus:border-[#D4AF37]"
                 >
-                  <option value="Perfumes">Fine Fragrances</option>
+                  <option value="Perfumes">Velvet- For Her</option>
+                  <option value="Perfumes">Bloom- For Her</option>
+                  <option value="Perfumes">Bliss- For Her</option>
+                  <option value="Perfumes">Solver- For Him</option>
+                  <option value="Perfumes">Braven- For Him</option>
+                  {/* <option value="Perfumes">Fine Fragrances</option>
                   <option value="Leather Bags">Luxury Leather Bags</option>
                   <option value="Cosmetics">Botanical Cosmetics</option>
-                  <option value="Bespoke Gifting">Bespoke Corporate Gifting</option>
+                  <option value="Bespoke Gifting">Bespoke Corporate Gifting</option>*/}
                 </select>
               </div>
 
