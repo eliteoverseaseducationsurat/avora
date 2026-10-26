@@ -283,9 +283,9 @@ function ProductCard({ product, onWhatsApp, onQuickView }) {
 
 
 export default function App() {
-  const [viewMode, setViewMode] = useState('store'); // 'store' or 'admin'
+  const [viewMode, setViewMode] = useState('store');
   const [activeCategory, setActiveCategory] = useState('all');
-  const [maxPrice, setMaxPrice] = useState(30000);
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalVariant, setModalVariant] = useState(null);
 
@@ -299,20 +299,18 @@ export default function App() {
   });
   const [status, setStatus] = useState({ loading: false, success: '', error: '' });
 
-  // If viewing admin portal, switch to AdminDashboard component
-  if (viewMode === 'admin') {
-    return <AdminDashboard onBackToStore={() => setViewMode('store')} />;
-  }
-
-  // Filter products based on Category and Price
- // Filter products based on Category and Price
-  const filteredProducts = PRODUCTS.filter((item) => {
-    const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+  // Filter products based on Category and Variant Price Range
+  const filteredProducts = PRODUCTS.filter((product) => {
+    const matchesCategory = activeCategory === 'all' || product.category === activeCategory;
     
-    // Check if any variant price fits within maxPrice (or fallback to item.price if variants aren't used)
-    const matchesPrice = item.variants 
-      ? item.variants.some(v => v.price <= maxPrice)
-      : (item.price || 0) <= maxPrice;
+    let matchesPrice = true;
+    if (selectedPriceRange === 'under-500') {
+      matchesPrice = product.variants.some(v => v.price < 500);
+    } else if (selectedPriceRange === '500-1000') {
+      matchesPrice = product.variants.some(v => v.price >= 500 && v.price <= 1000);
+    } else if (selectedPriceRange === 'above-1000') {
+      matchesPrice = product.variants.some(v => v.price > 1000);
+    }
 
     return matchesCategory && matchesPrice;
   });
@@ -355,12 +353,6 @@ export default function App() {
   return (
     <div className="bg-[#FDFBF7] text-[#1A1A1A] font-sans min-h-screen selection:bg-[#E5C1CD] selection:text-[#1A1A1A]">
       
-      {/*{/* Top Banner 
-      <div className="bg-[#1A1A1A] text-[#E5C1CD] text-xs font-light tracking-widest text-center py-2.5 uppercase px-4 border-b border-[#D4AF37]/20 flex items-center justify-center gap-2">
-        <Gift className="w-3.5 h-3.5 text-[#D4AF37]" />
-        <span>Complimentary Bespoke Packaging & Express Pan-India Delivery on orders above ₹10,000</span>
-      </div>*/}
-
       {/* Navigation Bar */}
       <nav className="sticky top-0 z-40 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#E5C1CD]/30 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -401,10 +393,8 @@ export default function App() {
         </div>
       </nav>
 
-{/* Hero Section with Background Video */}
+      {/* Hero Section with Background Video */}
       <section className="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
-        
-        {/* Background Video */}
         <video 
           autoPlay 
           loop 
@@ -416,36 +406,29 @@ export default function App() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Dark Overlay for Text Readability */}
         <div className="absolute inset-0 bg-black/50 z-[1]"></div>
 
-        {/* Content Container */}
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6 flex flex-col items-center">
           
-          {/* Hero Logo Image (Cutout) */}
+          {/* Hero Logo Image (4x Bigger) */}
           <img 
             src="https://eliteoverseaseducation.com/wp-content/uploads/2026/10/Luxury-Gold-Avora-India-Logo.png" 
-            alt="The Avora India" 
+            alt="The Avora Emblem" 
             className="w-64 h-64 object-contain mb-4 drop-shadow-2xl" 
           />
-
-          {/*<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/60 bg-black/40 backdrop-blur-md text-xs uppercase tracking-widest text-[#D4AF37] font-medium">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Haute Fragrance & Leathercraft</span>
-          </div>*/}
 
           <h1 className="font-serif text-5xl md:text-7xl font-normal text-white leading-tight tracking-tight drop-shadow-md">
             Sensory Luxury, <br />
             <span 
-  className="italic font-light"
-  style={{
-    background: 'linear-gradient(135deg, #845A33 0%, #C29864 35%, #E6C25B 65%, #C29864 85%, #845A33 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
-  }}
->
-  Crafted for Distinction
-</span>
+              className="italic font-light"
+              style={{
+                background: 'linear-gradient(135deg, #845A33 0%, #C29864 35%, #E6C25B 65%, #C29864 85%, #845A33 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              Crafted for Distinction
+            </span>
           </h1>
 
           <p className="text-base md:text-lg text-[#FDFBF7]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
@@ -477,7 +460,6 @@ export default function App() {
       {/* Catalog & Filter Section */}
       <section id="collections" className="py-24 max-w-7xl mx-auto px-6 border-t border-[#E5C1CD]/30">
         
-        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-medium block">
             Curated Showcase
@@ -513,27 +495,80 @@ export default function App() {
             ))}
           </div>
 
-          {/* Price Range Slider Filter */}
-          <div className="flex items-center gap-4 w-full md:w-72 bg-[#FDFBF7] px-4 py-2 rounded-xl border border-[#E5C1CD]/30">
-            <Filter className="w-4 h-4 text-[#D4AF37] shrink-0" />
-            <div className="flex-1">
-              <div className="flex justify-between text-[11px] uppercase tracking-wider text-[#1A1A1A]/60 mb-1 font-medium">
-                <span>Max Price:</span>
-                <span className="text-[#1A1A1A] font-bold">₹{maxPrice.toLocaleString()}</span>
-              </div>
-              <input
-                type="range"
-                min="5000"
-                max="30000"
-                step="1000"
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="w-full accent-[#D4AF37] cursor-pointer h-1 bg-[#E5C1CD]/50 rounded-lg appearance-none"
-              />
-            </div>
+          {/* Price Range Buttons Filter */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="text-xs uppercase tracking-wider text-[#1A1A1A]/60 font-semibold mr-1">
+              Filter Price:
+            </span>
+            {[
+              { id: 'all', label: 'All Prices' },
+              { id: 'under-500', label: 'Under ₹500' },
+              { id: '500-1000', label: '₹500 - ₹1,000' },
+              { id: 'above-1000', label: 'Above ₹1,000' },
+            ].map((range) => (
+              <button
+                key={range.id}
+                onClick={() => setSelectedPriceRange(range.id)}
+                className={`px-3.5 py-1.5 rounded-full text-[11px] uppercase tracking-wider transition-all border ${
+                  selectedPriceRange === range.id
+                    ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
+                    : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
+                }`}
+              >
+                {range.label}
+              </button>
+            ))}
           </div>
 
         </div>
+
+
+        {/* Price Filter Buttons */}
+<div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+  <span className="text-xs uppercase tracking-widest text-[#1A1A1A]/60 font-semibold mr-2">
+    Filter Price:
+  </span>
+  <button
+    onClick={() => setSelectedPriceRange('all')}
+    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
+      selectedPriceRange === 'all'
+        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
+        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
+    }`}
+  >
+    All Prices
+  </button>
+  <button
+    onClick={() => setSelectedPriceRange('under-500')}
+    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
+      selectedPriceRange === 'under-500'
+        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
+        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
+    }`}
+  >
+    Under ₹500
+  </button>
+  <button
+    onClick={() => setSelectedPriceRange('500-1000')}
+    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
+      selectedPriceRange === '500-1000'
+        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
+        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
+    }`}
+  >
+    ₹500 - ₹1,000
+  </button>
+  <button
+    onClick={() => setSelectedPriceRange('above-1000')}
+    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
+      selectedPriceRange === 'above-1000'
+        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
+        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
+    }`}
+  >
+    Above ₹1,000
+  </button>
+</div>
 
 
 
