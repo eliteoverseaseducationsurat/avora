@@ -93,7 +93,7 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/VELVET.jpeg',
-    inspiredBy: 'GOOD GIRL', // 👉 Add this here
+    inspiredBy: 'GOOD GIRL',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
     variants: [
@@ -109,6 +109,7 @@ const PRODUCTS = [
     
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLOOM.jpeg',
+    inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet',
     description: 'A graceful floral composition that blends the timeless romance of rose with the delicate freshness of lily of the valley. Orchid and violet add a soft, powdery elegance for a beautifully feminine finish.',
     variants: [
@@ -124,6 +125,7 @@ const PRODUCTS = [
     
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLISS.jpeg',
+    inspiredBy: 'BOMBSHELL',
     notes: 'Red Berries · Peony · Jasmine · Orchid',
     description: 'Juicy passionfruit and vibrant red berries bring a playful burst of fruit, while delicate peony and jasmine add a graceful floral heart. Vanilla orchid rounds out the fragrance with a soft, creamy finish.',
     variants: [
@@ -139,6 +141,7 @@ const PRODUCTS = [
     
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BRAVEN.jpeg',
+    inspiredBy: 'MYSLF',
     notes: 'Cardamom · Toffee · Amberwood',
     description: 'A rich, captivating fragrance where aromatic cardamom meets the indulgent sweetness of toffee, settling into the warm depth of amberwood.',
     variants: [
@@ -154,6 +157,7 @@ const PRODUCTS = [
     
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
+    inspiredBy: 'THE MOST WANTED',
     notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
     description: 'Bright bergamot opens with a crisp citrus freshness, followed by the delicate elegance of orange blossom. Patchouli and a modern amber-woody base bring depth to this clean, sophisticated scent.',
     variants: [
