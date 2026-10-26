@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminDashboard from './AdminDashboard';
 import { 
@@ -106,7 +106,6 @@ const PRODUCTS = [
     id: 2,
     name: 'BLOOM',
     category: 'fragrance',
-    
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLOOM.jpeg',
     inspiredBy: 'J`ADORE',
@@ -122,7 +121,6 @@ const PRODUCTS = [
     id: 3,
     name: 'BLISS',
     category: 'fragrance',
-    
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLISS.jpeg',
     inspiredBy: 'BOMBSHELL',
@@ -138,7 +136,6 @@ const PRODUCTS = [
     id: 4,
     name: 'BRAVEN',
     category: 'fragrance',
-    
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BRAVEN.jpeg',
     inspiredBy: 'MYSLF',
@@ -154,7 +151,6 @@ const PRODUCTS = [
     id: 5,
     name: 'SOLVER',
     category: 'fragrance',
-    
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     inspiredBy: 'THE MOST WANTED',
@@ -169,10 +165,25 @@ const PRODUCTS = [
 ];
 
 
-function ProductCard({ product, onWhatsApp, onQuickView }) {
-  const [selectedVariant, setSelectedVariant] = useState(
-    product.variants ? product.variants[0] : null
-  );
+function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
+  const getMatchingVariant = () => {
+    if (!product.variants || product.variants.length === 0) return null;
+
+    if (selectedPriceRange === 'under-500') {
+      return product.variants.find(v => v.price < 500) || product.variants[0];
+    } else if (selectedPriceRange === '500-1000') {
+      return product.variants.find(v => v.price >= 500 && v.price <= 1000) || product.variants[0];
+    } else if (selectedPriceRange === 'above-1000') {
+      return product.variants.find(v => v.price > 1000) || product.variants[0];
+    }
+    return product.variants[0];
+  };
+
+  const [selectedVariant, setSelectedVariant] = useState(getMatchingVariant());
+
+  useEffect(() => {
+    setSelectedVariant(getMatchingVariant());
+  }, [selectedPriceRange]);
 
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-[#E5C1CD]/30 hover:shadow-xl hover:border-[#D4AF37]/50 transition-all duration-500 flex flex-col">
@@ -298,6 +309,11 @@ export default function App() {
     message: ''
   });
   const [status, setStatus] = useState({ loading: false, success: '', error: '' });
+
+  // If viewing admin portal, switch to AdminDashboard component
+  if (viewMode === 'admin') {
+    return <AdminDashboard onBackToStore={() => setViewMode('store')} />;
+  }
 
   // Filter products based on Category and Variant Price Range
   const filteredProducts = PRODUCTS.filter((product) => {
@@ -470,7 +486,7 @@ export default function App() {
           <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto"></div>
         </div>
 
-        {/* Filters Controls */}
+        {/* Filters Controls (Unified Box) */}
         <div className="bg-white/80 p-6 rounded-2xl border border-[#E5C1CD]/30 shadow-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-sm">
           
           {/* Category Tabs */}
@@ -522,68 +538,23 @@ export default function App() {
 
         </div>
 
-
-        {/* Price Filter Buttons */}
-<div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-  <span className="text-xs uppercase tracking-widest text-[#1A1A1A]/60 font-semibold mr-2">
-    Filter Price:
-  </span>
-  <button
-    onClick={() => setSelectedPriceRange('all')}
-    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
-      selectedPriceRange === 'all'
-        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
-        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
-    }`}
-  >
-    All Prices
-  </button>
-  <button
-    onClick={() => setSelectedPriceRange('under-500')}
-    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
-      selectedPriceRange === 'under-500'
-        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
-        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
-    }`}
-  >
-    Under ₹500
-  </button>
-  <button
-    onClick={() => setSelectedPriceRange('500-1000')}
-    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
-      selectedPriceRange === '500-1000'
-        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
-        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
-    }`}
-  >
-    ₹500 - ₹1,000
-  </button>
-  <button
-    onClick={() => setSelectedPriceRange('above-1000')}
-    className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-wider transition-all border ${
-      selectedPriceRange === 'above-1000'
-        ? 'bg-[#1A1A1A] text-[#E5C1CD] border-[#1A1A1A] font-semibold'
-        : 'bg-white text-[#1A1A1A]/70 border-[#E5C1CD]/50 hover:border-[#D4AF37]'
-    }`}
-  >
-    Above ₹1,000
-  </button>
-</div>
-
-
-
-
-      {/* Product Grid */}
+        {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <ProductCard 
                 key={product.id} 
                 product={product} 
+                selectedPriceRange={selectedPriceRange}
                 onWhatsApp={(msg) => openWhatsApp(msg)}
                 onQuickView={(prod) => {
                   setSelectedProduct(prod);
-                  setModalVariant(prod.variants ? prod.variants[0] : null);
+                  const matchingVariant = 
+                    selectedPriceRange === 'under-500' ? prod.variants.find(v => v.price < 500) :
+                    selectedPriceRange === '500-1000' ? prod.variants.find(v => v.price >= 500 && v.price <= 1000) :
+                    selectedPriceRange === 'above-1000' ? prod.variants.find(v => v.price > 1000) :
+                    prod.variants[0];
+                  setModalVariant(matchingVariant || prod.variants[0]);
                 }}
               />
             ))
@@ -591,7 +562,7 @@ export default function App() {
             <div className="col-span-full py-16 text-center space-y-3">
               <p className="text-lg font-serif text-[#1A1A1A]/60">No luxury items match your chosen filter.</p>
               <button 
-                onClick={() => { setActiveCategory('all'); setMaxPrice(30000); }}
+                onClick={() => { setActiveCategory('all'); setSelectedPriceRange('all'); }}
                 className="text-xs uppercase tracking-widest text-[#D4AF37] underline font-medium hover:text-[#1A1A1A]"
               >
                 Reset All Filters
@@ -599,8 +570,6 @@ export default function App() {
             </div>
           )}
         </div>
-
-
 
       </section>
 
@@ -702,38 +671,33 @@ export default function App() {
                 </div>
               </div>
 
-<a 
-  href="mailto:info@avoraonline.in"
-  className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light hover:text-[#D4AF37] transition-colors"
->
-  <Mail className="w-5 h-5 text-[#D4AF37]" />
-  <span>info@avoraonline.in</span>
-</a>
+              <a 
+                href="mailto:info@avoraonline.in"
+                className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light hover:text-[#D4AF37] transition-colors"
+              >
+                <Mail className="w-5 h-5 text-[#D4AF37]" />
+                <span>info@avoraonline.in</span>
+              </a>
 
-             {/* Instagram Row (Clickable) */}
-<a 
-  href="https://www.instagram.com/theavoraindia?utm_source=qr&vrfl=YnhjZ3VsM3U2cnBt" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light hover:text-[#D4AF37] transition-colors"
->
-  <svg 
-    className="w-5 h-5 text-[#D4AF37] fill-none stroke-current stroke-2" 
-    viewBox="0 0 24 24" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-  <span>@theavoraindia</span>
-</a>
-
-              {/*<div className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light">
-                <MapPin className="w-5 h-5 text-[#D4AF37]" />
-                <span>• Surat</span>
-              </div>*/}
+              {/* Instagram Row (Clickable) */}
+              <a 
+                href="https://www.instagram.com/theavoraindia?utm_source=qr&vrfl=YnhjZ3VsM3U2cnBt" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-sm text-[#1A1A1A]/80 font-light hover:text-[#D4AF37] transition-colors"
+              >
+                <svg 
+                  className="w-5 h-5 text-[#D4AF37] fill-none stroke-current stroke-2" 
+                  viewBox="0 0 24 24" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+                <span>@theavoraindia</span>
+              </a>
 
             </div>
           </div>
@@ -861,26 +825,23 @@ export default function App() {
             <span className="hover:text-[#D4AF37] cursor-pointer">Privacy</span>
             <span className="hover:text-[#D4AF37] cursor-pointer">Terms</span>
             <span 
-  onClick={() => {
-    const pin = prompt("Enter Admin Access PIN:");
-    if (pin === "8877") { // Replace with your secret PIN
-      setViewMode('admin');
-    } else if (pin) {
-      alert("Unauthorized Access!");
-    }
-  }} 
-  className="text-[#D4AF37] hover:underline cursor-pointer font-bold"
->
-  Admin Portal
-</span>
+              onClick={() => {
+                const pin = prompt("Enter Admin Access PIN:");
+                if (pin === "8877") {
+                  setViewMode('admin');
+                } else if (pin) {
+                  alert("Unauthorized Access!");
+                }
+              }} 
+              className="text-[#D4AF37] hover:underline cursor-pointer font-bold"
+            >
+              Admin Portal
+            </span>
           </div>
         </div>
       </footer>
 
-
-
-
-{/* Quick View Modal */}
+      {/* Quick View Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-[#FDFBF7] max-w-2xl w-full rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl relative animate-in fade-in zoom-in duration-200">
