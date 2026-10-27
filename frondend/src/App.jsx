@@ -360,7 +360,7 @@ export default function App() {
 
   const openWhatsApp = (productName = '') => {
     const message = productName 
-      ? `Hello The Avora India, I am interested in inquiring about ${productName}. Please share details.` 
+      ? `Hello The Avora India, I would like to order: ${productName}. Please share details.` 
       : `Hello The Avora India, I would like to make an inquiry and place an order.`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/919081600655?text=${encoded}`, '_blank');
