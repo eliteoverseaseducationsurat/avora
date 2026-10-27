@@ -448,7 +448,8 @@ export default function App() {
           </h1>
 
           <p className="text-base md:text-lg text-[#FDFBF7]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
-            Discover bespoke fine fragrances, handcrafted Italian leather bags, and indulgent botanical cosmetics created for connoisseurs of understated elegance.
+            Discover luxury perfumes crafted to captivate, with captivating fragrance notes and timeless elegance.
+            Explore signature scents for him and her at The Avora India, where sophistication meets everyday luxury.
           </p>
 
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
