@@ -281,7 +281,7 @@ function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
             onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`)}
             className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] hover:text-[#25D366] transition-colors"
           >
-            <span>Inquire</span>
+            <span>Order Now</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
