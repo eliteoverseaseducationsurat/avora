@@ -94,7 +94,7 @@ const PRODUCTS = [
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/VELVET.jpeg',
     inspiredBy: 'GOOD GIRL',
-    notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka',
+    notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka Bean • Cocoa • Vanilla',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
     variants: [
       { size: '20 ml', mrp: 499, price: 299 },
@@ -109,7 +109,7 @@ const PRODUCTS = [
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLOOM.jpeg',
     inspiredBy: 'J`ADORE',
-    notes: 'Orchid · Rose · Lily of the Valley · Violet',
+    notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
     description: 'A graceful floral composition that blends the timeless romance of rose with the delicate freshness of lily of the valley. Orchid and violet add a soft, powdery elegance for a beautifully feminine finish.',
     variants: [
       { size: '20 ml', mrp: 499, price: 299 },
@@ -124,7 +124,7 @@ const PRODUCTS = [
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLISS.jpeg',
     inspiredBy: 'BOMBSHELL',
-    notes: 'Red Berries · Peony · Jasmine · Orchid',
+    notes: 'Red Berries · Peony · Jasmine · Passionfruit · Vanilla Orchid · Musk',
     description: 'Juicy passionfruit and vibrant red berries bring a playful burst of fruit, while delicate peony and jasmine add a graceful floral heart. Vanilla orchid rounds out the fragrance with a soft, creamy finish.',
     variants: [
       { size: '20 ml', mrp: 499, price: 299 },
@@ -154,7 +154,7 @@ const PRODUCTS = [
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     inspiredBy: 'MYSLF',
-    notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
+    notes: 'Bergamot · Orange Blossom · Patchouli · Amber',
     description: 'Bright bergamot opens with a crisp citrus freshness, followed by the delicate elegance of orange blossom. Patchouli and a modern amber-woody base bring depth to this clean, sophisticated scent.',
     variants: [
       { size: '20 ml', mrp: 499, price: 299 },
