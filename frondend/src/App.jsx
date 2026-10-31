@@ -138,7 +138,8 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BRAVEN.jpeg',
-    inspiredBy: 'MYSLF',
+    inspiredBy: 'THE MOST WANTED',
+    inspiredBy: '',
     notes: 'Cardamom · Toffee · Amberwood',
     description: 'A rich, captivating fragrance where aromatic cardamom meets the indulgent sweetness of toffee, settling into the warm depth of amberwood.',
     variants: [
@@ -153,7 +154,7 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
-    inspiredBy: 'THE MOST WANTED',
+    inspiredBy: 'MTSLF',
     notes: 'Bergamot · Orange Blossom · Patchouli · Ambrofix',
     description: 'Bright bergamot opens with a crisp citrus freshness, followed by the delicate elegance of orange blossom. Patchouli and a modern amber-woody base bring depth to this clean, sophisticated scent.',
     variants: [
