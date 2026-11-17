@@ -107,7 +107,7 @@ const PRODUCTS = [
     name: 'BLOOM',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/BLOOM.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
     inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
     description: 'A graceful floral composition that blends the timeless romance of rose with the delicate freshness of lily of the valley. Orchid and violet add a soft, powdery elegance for a beautifully feminine finish.',
