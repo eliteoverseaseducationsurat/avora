@@ -94,6 +94,10 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
+    images: [
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/velvet2.jpeg'
+    ],
     inspiredBy: 'GOOD GIRL',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka Bean • Cocoa • Vanilla',
     description: 'Creamy almond and rich coffee create an inviting opening, unfolding into the intoxicating beauty of jasmine and tuberose. Tonka adds a smooth, warm finish that feels indulgent and sophisticated.',
@@ -111,7 +115,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom2.jpeg'
     ],
     inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
@@ -128,6 +132,10 @@ const PRODUCTS = [
     category: 'fragrance',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
+    images: [
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss2.jpeg'
+    ],
     inspiredBy: 'BOMBSHELL',
     notes: 'Red Berries · Peony · Jasmine · Passionfruit · Vanilla Orchid · Musk',
     description: 'Juicy passionfruit and vibrant red berries bring a playful burst of fruit, while delicate peony and jasmine add a graceful floral heart. Vanilla orchid rounds out the fragrance with a soft, creamy finish.',
