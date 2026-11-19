@@ -8,6 +8,7 @@ import {
   MessageCircle, 
   Mail, 
   MapPin, 
+  ChevronLeft,
   ChevronRight, 
   Check, 
   Star, 
@@ -102,12 +103,16 @@ const PRODUCTS = [
       { size: '100 ml', mrp: 1399, price: 1099 }
     ]
   },
-  {
+{
     id: 2,
     name: 'BLOOM',
     category: 'fragrance',
     tag: 'For Her',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
+    images: [
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg'
+    ],
     inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
     description: 'A graceful floral composition that blends the timeless romance of rose with the delicate freshness of lily of the valley. Orchid and violet add a soft, powdery elegance for a beautifully feminine finish.',
@@ -166,6 +171,15 @@ const PRODUCTS = [
 
 
 function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
+  const productImages =
+    Array.isArray(product.images) && product.images.length > 0
+      ? product.images
+      : product.image
+      ? [product.image]
+      : [];
+
+  const [imageIndex, setImageIndex] = useState(0);
+
   const getMatchingVariant = () => {
     if (!product.variants || product.variants.length === 0) return null;
 
@@ -185,31 +199,103 @@ function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
     setSelectedVariant(getMatchingVariant());
   }, [selectedPriceRange]);
 
+  useEffect(() => {
+    setImageIndex(0);
+  }, [product.id]);
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    if (productImages.length <= 1) return;
+    setImageIndex((prev) => (prev === 0 ? productImages.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    if (productImages.length <= 1) return;
+    setImageIndex((prev) => (prev === productImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const activeImage = productImages[imageIndex] || product.image;
+
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-[#E5C1CD]/30 hover:shadow-xl hover:border-[#D4AF37]/50 transition-all duration-500 flex flex-col">
-      {/* Image Container */}
-      <div className="relative aspect-[4/5] bg-[#FDFBF7] overflow-hidden">
+      {/* Image Container - Click anywhere outside left/right arrows opens Quick View */}
+      <div
+        onClick={() => onQuickView(product)}
+        className="relative aspect-[4/5] bg-[#FDFBF7] overflow-hidden cursor-pointer"
+      >
         <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+          src={activeImage}
+          alt={`${product.name} - view ${imageIndex + 1}`}
+          className="w-full h-full object-contain p-2 object-center group-hover:scale-105 transition-transform duration-700 ease-out select-none"
         />
-        <div className="absolute top-4 left-4 bg-[#1A1A1A]/80 backdrop-blur-md text-[#E5C1CD] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-medium">
+
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-4 left-4 z-10 bg-[#1A1A1A]/80 backdrop-blur-md text-[#E5C1CD] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-medium"
+        >
           {product.tag}
         </div>
 
+        {/* Left / Right Image Navigation */}
+        {productImages.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={handlePrevImage}
+              aria-label="Previous image"
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 bg-[#1A1A1A]/75 hover:bg-[#1A1A1A] text-white p-2 rounded-full shadow-md transition-all"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNextImage}
+              aria-label="Next image"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 bg-[#1A1A1A]/75 hover:bg-[#1A1A1A] text-white p-2 rounded-full shadow-md transition-all"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full"
+            >
+              {productImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setImageIndex(idx)}
+                  aria-label={`View image ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    imageIndex === idx ? 'w-4 bg-[#D4AF37]' : 'w-1.5 bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
         {/* Quick Action Overlay */}
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 pointer-events-none">
           <button
-            onClick={() => onQuickView(product)}
-            className="bg-white text-[#1A1A1A] p-3 rounded-full hover:bg-[#D4AF37] hover:text-white transition-colors shadow-md"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onQuickView(product);
+            }}
+            className="pointer-events-auto bg-white text-[#1A1A1A] p-3 rounded-full hover:bg-[#D4AF37] hover:text-white transition-colors shadow-md"
             title="Quick View"
           >
             <Eye className="w-4 h-4" />
           </button>
           <button
-            onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`)}
-            className="bg-[#25D366] text-white p-3 rounded-full hover:bg-[#20ba5a] transition-colors shadow-md"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`);
+            }}
+            className="pointer-events-auto bg-[#25D366] text-white p-3 rounded-full hover:bg-[#20ba5a] transition-colors shadow-md"
             title="Inquire on WhatsApp"
           >
             <MessageCircle className="w-4 h-4" />
@@ -251,6 +337,7 @@ function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
               {product.variants.map((variant) => (
                 <button
                   key={variant.size}
+                  type="button"
                   onClick={() => setSelectedVariant(variant)}
                   className={`px-3 py-1 text-[11px] rounded-full border transition-all ${
                     selectedVariant?.size === variant.size
@@ -278,6 +365,7 @@ function ProductCard({ product, selectedPriceRange, onWhatsApp, onQuickView }) {
             </span>
           </div>
           <button
+            type="button"
             onClick={() => onWhatsApp(`${product.name} - ${selectedVariant?.size || ''} (Offer Price: ₹${selectedVariant?.price || ''})`)}
             className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] hover:text-[#25D366] transition-colors"
           >
