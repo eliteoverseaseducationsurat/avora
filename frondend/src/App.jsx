@@ -171,7 +171,7 @@ const PRODUCTS = [
     tag: 'For Him',
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/SOLVER.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/solver2.jpeg'
     ],
     inspiredBy: 'MYSLF',
