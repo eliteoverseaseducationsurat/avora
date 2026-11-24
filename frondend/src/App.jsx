@@ -499,7 +499,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium text-[#1A1A1A]/80">
             <a href="#collections" className="hover:text-[#D4AF37] transition-colors">Collections</a>
             <a href="#craftsmanship" className="hover:text-[#D4AF37] transition-colors">Craftsmanship</a>
-            <a href="#contact" className="hover:text-[#D4AF37] transition-colors">Private Concierge</a>
+            <a href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</a>
           </div>
 
           {/* Direct WhatsApp Order CTA */}
@@ -710,7 +710,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* E-COMMERCE COMING SOON PROMO BOX */}
+      {/* E-COMMERCE COMING SOON PROMO BOX */}  
+      {/*
       <section className="py-16 max-w-7xl mx-auto px-6">
         <div className="bg-gradient-to-r from-[#1A1A1A] via-[#2D2327] to-[#1A1A1A] text-[#FDFBF7] p-10 md:p-14 rounded-3xl border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
           
@@ -736,7 +737,7 @@ export default function App() {
           </button>
 
         </div>
-      </section>
+      </section> */}
 
       {/* Contact & Private Concierge Form */}
       <section id="contact" className="py-24 max-w-7xl mx-auto px-6 border-t border-[#E5C1CD]/30">
