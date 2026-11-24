@@ -93,9 +93,9 @@ const PRODUCTS = [
     name: 'VELVET',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet3-1.png',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet3-1.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/velvet2.jpeg'
     ],
     inspiredBy: 'GOOD GIRL',
@@ -112,9 +112,9 @@ const PRODUCTS = [
     name: 'BLOOM',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom2.jpeg'
     ],
     inspiredBy: 'J`ADORE',
@@ -131,9 +131,9 @@ const PRODUCTS = [
     name: 'BLISS',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss2.jpeg'
     ],
     inspiredBy: 'BOMBSHELL',
@@ -150,9 +150,9 @@ const PRODUCTS = [
     name: 'BRAVEN',
     category: 'fragrance',
     tag: 'For Him',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven2.jpeg'
     ],
     inspiredBy: 'THE MOST WANTED',
@@ -169,10 +169,10 @@ const PRODUCTS = [
     name: 'SOLVER',
     category: 'fragrance',
     tag: 'For Him',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/solver2.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png'
     ],
     inspiredBy: 'MYSLF',
     notes: 'Bergamot · Orange Blossom · Patchouli · Amber',
