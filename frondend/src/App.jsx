@@ -96,7 +96,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet3-1.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet4.png'
     ],
     inspiredBy: 'GOOD GIRL',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka Bean • Cocoa • Vanilla',
@@ -115,7 +115,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom4.png'
     ],
     inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
@@ -134,7 +134,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss4.png'
     ],
     inspiredBy: 'BOMBSHELL',
     notes: 'Red Berries · Peony · Jasmine · Passionfruit · Vanilla Orchid · Musk',
@@ -153,7 +153,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven4.png'
     ],
     inspiredBy: 'THE MOST WANTED',
     notes: 'Cardamom · Toffee · Amberwood',
@@ -172,7 +172,7 @@ const PRODUCTS = [
     image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver4.png'
       
     ],
     inspiredBy: 'MYSLF',
