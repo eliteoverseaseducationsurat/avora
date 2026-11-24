@@ -93,10 +93,10 @@ const PRODUCTS = [
     name: 'VELVET',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet3-1.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Velvet3-1.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/velvet2.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/valvet1.jpeg'
     ],
     inspiredBy: 'GOOD GIRL',
     notes: 'Almond • Coffee • Jasmine • Tuberose • Tonka Bean • Cocoa • Vanilla',
@@ -112,10 +112,10 @@ const PRODUCTS = [
     name: 'BLOOM',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.png',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom2.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg'
     ],
     inspiredBy: 'J`ADORE',
     notes: 'Orchid · Rose · Lily of the Valley · Violet · Musk · Vanilla',
@@ -131,10 +131,10 @@ const PRODUCTS = [
     name: 'BLISS',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.png',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss2.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg'
     ],
     inspiredBy: 'BOMBSHELL',
     notes: 'Red Berries · Peony · Jasmine · Passionfruit · Vanilla Orchid · Musk',
@@ -150,10 +150,10 @@ const PRODUCTS = [
     name: 'BRAVEN',
     category: 'fragrance',
     tag: 'For Him',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.png',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven2.jpeg'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg'
     ],
     inspiredBy: 'THE MOST WANTED',
     notes: 'Cardamom · Toffee · Amberwood',
@@ -169,10 +169,11 @@ const PRODUCTS = [
     name: 'SOLVER',
     category: 'fragrance',
     tag: 'For Him',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
     images: [
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg',
-      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png'
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Solver3.png',
+      'https://eliteoverseaseducation.com/wp-content/uploads/2026/10/SOLVER.jpeg'
+      
     ],
     inspiredBy: 'MYSLF',
     notes: 'Bergamot · Orange Blossom · Patchouli · Amber',
