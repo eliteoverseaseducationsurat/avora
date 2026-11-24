@@ -112,7 +112,7 @@ const PRODUCTS = [
     name: 'BLOOM',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bloom3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bloom1.jpeg'
@@ -131,7 +131,7 @@ const PRODUCTS = [
     name: 'BLISS',
     category: 'fragrance',
     tag: 'For Her',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Bliss3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/bliss1.jpeg'
@@ -150,7 +150,7 @@ const PRODUCTS = [
     name: 'BRAVEN',
     category: 'fragrance',
     tag: 'For Him',
-    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.png',
+    image: 'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg',
     images: [
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/Braven3.png',
       'https://eliteoverseaseducation.com/wp-content/uploads/2026/11/braven1.jpeg'
